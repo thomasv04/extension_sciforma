@@ -11,6 +11,14 @@ h1 {
   font-weight: 400;
   margin: 0;
   padding: 0;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+#login form input[type="submit"] {
+  background-color: #0092cf !important;
 }
 
 #logout-button {

@@ -2,12 +2,21 @@
 <html lang="fr">
   <head>
     <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/popup.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
-  <body>
+  <body id="popup-page">
     <h1>Sciforma</h1>
     <div id="logout">
       <input type="submit" id="logout-button" value="Logout" />
@@ -15,12 +24,81 @@
 
     <div id="popup">
       <div id="popup-content">
-        <h2>Popup</h2>
-        <p>Popup content</p>
-        <h3 id="timerView"><time>00:00:00</time></h3>
+        <!-- <h3 id="timerView"><time>00:00:00</time></h3>
         <button id="strt">start</button>
         <button id="stp">stop</button>
         <button id="rst">reset</button>
+        <button id="save">save</button>
+        <button id="rst">reset</button> -->
+        <div class="timer">
+          <div class="day">
+            <div class="temps"><p>00</p></div>
+            <p>Jours</p>
+          </div>
+
+          <div class="hours">
+            <div class="temps"><p>01</p></div>
+            <p>Heures</p>
+          </div>
+
+          <div class="minutes">
+            <div class="temps"><p>02</p></div>
+            <p>Minutes</p>
+          </div>
+
+          <div class="seconds">
+            <div class="temps"><p>03</p></div>
+            <p>Secondes</p>
+          </div>
+          <div class="icon">
+            <div class="temps"><i class="fa-solid fa-hourglass-start"></i></div>
+            <div></div>
+          </div>
+        </div>
+
+        <div class="barre"></div>
+
+        <div class="projets">
+          <div class="border project">
+            <p>Espace client</p>
+            <div class="time" data-project="espace-client"><p>00:00</p></div>
+            <div class="add">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+
+          <div class="border project">
+            <p>Emys</p>
+            <div class="time" data-project="emys"><p>00:00</p></div>
+            <div class="add">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+
+          <div class="border project">
+            <p>Skynet</p>
+            <div class="time" data-project="skynet"><p>00:00</p></div>
+            <div class="add">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+
+          <div class="border project">
+            <p>Phoenix</p>
+            <div class="time" data-project="phoenix"><p>00:00</p></div>
+            <div class="add">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="border total" id="total">
+          <p>TOTAL</p>
+          <div class="time"><p>00:00</p></div>
+        </div>
+        <div class="border envoyer">Envoyer</div>
       </div>
     </div>
 
@@ -29,7 +107,7 @@
       <label for="dark-mode-toggle">Dark mode</label>
     </div> -->
 
-    <script src="../scripts/timer.js"></script>
+    <!-- <script src="../scripts/timer.js"></script> -->
     <script src="../scripts/popup.js"></script>
     <script src="../scripts/options.js"></script>
     <!-- <script src="../scripts/darkmode.js"></script> -->
