@@ -2,5 +2,12 @@
   "name": "Extension Sciforma",
   "description": "Création d'une extension pour Sciforma",
   "version": "1.0",
-  "manifest_version": 3
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "interfaces/popup.html"
+  }
 }
