@@ -9,5 +9,8 @@
   "permissions": ["storage", "activeTab", "scripting"],
   "action": {
     "default_popup": "interfaces/login.html"
+  },
+  "icons": {
+    "64": "icon64.png"
   }
 }
