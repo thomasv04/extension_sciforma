@@ -35,3 +35,11 @@ h1 {
   right: 10px;
   top: 10px;
 }
+
+input.error {
+  border: 1px solid red !important;
+}
+
+input[type="submit"].error {
+  background-color: red !important;
+}
