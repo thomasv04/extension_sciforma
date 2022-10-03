@@ -1,0 +1,6 @@
+{
+  "name": "Extension Sciforma",
+  "description": "Création d'une extension pour Sciforma",
+  "version": "1.0",
+  "manifest_version": 3
+}
