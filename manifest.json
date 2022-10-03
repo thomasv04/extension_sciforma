@@ -12,5 +12,9 @@
   },
   "icons": {
     "64": "icon64.png"
+  },
+  "options_ui": {
+    "page": "interfaces/options.html",
+    "open_in_tab": true
   }
 }
