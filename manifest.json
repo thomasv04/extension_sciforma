@@ -3,11 +3,16 @@
   "description": "Création d'une extension pour Sciforma",
   "version": "1.0",
   "manifest_version": 3,
+<<<<<<< HEAD
   "background": {
     "service_worker": "scripts/background.js"
   },
   "permissions": ["storage", "activeTab", "scripting"],
   "action": {
     "default_popup": "interfaces/popup.html"
+=======
+  "icons": {
+    "64": "icon64.png"
+>>>>>>> 44fca9c (add icon)
   }
 }
