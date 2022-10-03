@@ -26,13 +26,16 @@ function add() {
     timer();
 }
 function timer() {
-    t = setTimeout(add, 1000);
+        t = setTimeout(add, 1000);
 }
 
-start.onclick = timer;
+start.onclick = () => {
+    timer();
+    start.disabled = true;
+};
 stop.onclick = function() {
-    console.log(t)
     clearTimeout(t);
+    start.disabled = false;
 }
 reset.onclick = function() {
     timerView.textContent = "00:00:00";
