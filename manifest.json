@@ -8,6 +8,6 @@
   },
   "permissions": ["storage", "activeTab", "scripting"],
   "action": {
-    "default_popup": "interfaces/popup.html"
+    "default_popup": "interfaces/login.html"
   }
 }
