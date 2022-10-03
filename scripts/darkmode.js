@@ -20,8 +20,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
-darkModeToggle.addEventListener("click", (e) => {
-  const darkMode = darkModeToggle.checked;
+if (darkModeToggle) {
+  darkModeToggle.addEventListener("click", (e) => {
+    const darkMode = darkModeToggle.checked;
 
-  chrome.storage.local.set({ darkMode });
-});
+    chrome.storage.local.set({ darkMode });
+  });
+}
