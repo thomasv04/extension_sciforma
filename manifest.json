@@ -15,6 +15,12 @@
   },
   "options_ui": {
     "page": "interfaces/options.html",
+<<<<<<< HEAD
     "open_in_tab": false
   }
+=======
+    "open_in_tab": true
+  },
+  "host_permissions": ["https://edenred.sciforma.net/*"]
+>>>>>>> 7e1eba53da03c694649333b02b344ee464d06868
 }
