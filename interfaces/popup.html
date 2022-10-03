@@ -56,31 +56,46 @@
 
         <div class="barre"></div>
 
-        <div class="projet">
-          <div class="border p1">
+        <div class="projets">
+          <div class="border project">
             <p>Espace client</p>
-            <div class="X"><p>01:30</p></div>
+            <div class="time" data-project="espace-client"><p>00:00</p></div>
+            <div class="add">
+              <i class="fa-solid fa-plus"></i>
+            </div>
           </div>
 
-          <div class="border p2">
+          <div class="border project">
             <p>Emys</p>
-            <div class="X"><p>01:45</p></div>
+            <div class="time" data-project="emys"><p>00:00</p></div>
+            <div class="add">
+              <i class="fa-solid fa-plus"></i>
+            </div>
           </div>
 
-          <div class="border p3">
+          <div class="border project">
             <p>Skynet</p>
-            <div class="X"><p>00:35</p></div>
+            <div class="time" data-project="skynet"><p>00:00</p></div>
+            <div class="add">
+              <i class="fa-solid fa-plus"></i>
+            </div>
           </div>
 
-          <div class="border p4">
+          <div class="border project">
             <p>Phoenix</p>
-            <div class="X"><p>03:00</p></div>
+            <div class="time" data-project="phoenix"><p>00:00</p></div>
+            <div class="add">
+              <i class="fa-solid fa-plus"></i>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="footer">
-        <div class="border total"><p>TOTAL</p></div>
+        <div class="border total" id="total">
+          <p>TOTAL</p>
+          <div class="time"><p>00:00</p></div>
+        </div>
         <div class="border envoyer">Envoyer</div>
       </div>
     </div>
@@ -90,7 +105,7 @@
       <label for="dark-mode-toggle">Dark mode</label>
     </div> -->
 
-    <script src="../scripts/timer.js"></script>
+    <!-- <script src="../scripts/timer.js"></script> -->
     <script src="../scripts/popup.js"></script>
     <script src="../scripts/darkmode.js"></script>
   </body>
