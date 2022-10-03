@@ -2,6 +2,14 @@ let button = document.getElementById("login-button");
 let username = document.getElementById("username");
 let password = document.getElementById("password");
 
+document.addEventListener("DOMContentLoaded", async () => {
+  chrome.storage.local.get(["userStatus", "user_info"], function (response) {
+    if (response.userStatus) {
+      window.location.href = "popup.html";
+    }
+  });
+});
+
 button.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -17,3 +25,14 @@ button.addEventListener("click", (e) => {
     );
   }
 });
+
+is_user_signed_in = async () => {
+  chrome.storage.local.get(["userStatus", "user_info"], function (response) {
+    if (chrome.runtime.lastError) resolve({ userStatus: false, user_info: {} });
+    resolve(
+      response.userStatus === undefined
+        ? { userStatus: false, user_info: {} }
+        : { userStatus: response.userStatus, user_info: response.user_info }
+    );
+  });
+};
