@@ -31,6 +31,7 @@ body.dark-mode #total {
 
 body#option-page.dark-mode {
   background-color: #131718;
+  color: #ffffff;
 }
 
 body#option-page.dark-mode form input[type="number"] {

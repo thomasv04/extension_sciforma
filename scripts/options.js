@@ -1,6 +1,8 @@
 const settingsForm = document.getElementById("settingsForm");
 const hourPerDay = document.getElementById("hour-per-day");
 const logoutButton = document.getElementById("logout-button");
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+const body = document.body;
 
 /* 
  HEURE PAR JOUR
@@ -35,4 +37,16 @@ logoutButton.addEventListener("click", (e) => {
   chrome.runtime.sendMessage({ message: "logout" }, function (response) {
     if (response === "success") window.location.replace("./login.html");
   });
+});
+
+darkModeToggle.addEventListener("click", (e) => {
+  const darkMode = darkModeToggle.checked;
+
+  if (darkModeToggle.checked) {
+    body.classList.add("dark-mode");
+  } else {
+    body.classList.remove("dark-mode");
+  }
+
+  chrome.storage.local.set({ darkMode });
 });
