@@ -9,25 +9,30 @@
   </head>
   <body>
     <h1>Paramètrage</h1>
-    
+
     <div id="options">
       <!-- Rounded switch -->
       <div id="dark-mode">
         <label for="dark-mode-toggle">Dark mode</label>
         <label class="switch">
-          <input type="checkbox" id="dark-mode-toggle" >
+          <input type="checkbox" id="dark-mode-toggle" />
           <span class="slider round"></span>
         </label>
       </div>
 
       <form id="settingsForm">
         <label>Nombre d'heure par jour.</label>
-        <input type="number" name="hour-per-day" id="hour-per-day" placeholder="Nombre d'heure par jour" />
-        
+        <input
+          type="number"
+          name="hour-per-day"
+          id="hour-per-day"
+          placeholder="Nombre d'heure par jour"
+        />
+
         <button id="submit-settings" name="submit-settings">Enregistrer</button>
       </form>
     </div>
-    
+
     <script src="../scripts/options.js"></script>
     <script src="../scripts/darkmode.js"></script>
   </body>

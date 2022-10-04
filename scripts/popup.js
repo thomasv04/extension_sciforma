@@ -4,9 +4,7 @@ let totalTime = document.querySelector("#total .time");
 let addTime = document.querySelectorAll(".add");
 let timeTab = [];
 
-const time = "08:00";
-
-console.log(timeProject);
+const time = "08:26";
 
 logoutButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -37,8 +35,26 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 const convertTime = (time) => {
-  const [hours, minutes] = time.split(":");
+  let [hours, minutes] = time.split(":");
+
+  hours = parseInt(hours);
+  minutes = parseInt(minutes);
+
   return { hours, minutes };
+};
+
+const displayTime = (time) => {
+  let { hours, minutes } = convertTime(time);
+
+  while (minutes >= 60) {
+    hours = hours + 1;
+    minutes = minutes - 60;
+  }
+
+  if (hours < 10) hours = `0${hours}`;
+  if (minutes < 10) minutes = `0${minutes}`;
+
+  return `${hours}:${minutes}`;
 };
 
 const updateDom = (timeTab) => {
@@ -50,18 +66,24 @@ const updateDom = (timeTab) => {
     timeProject.forEach((project) => {
       timeTab.forEach((time) => {
         if (project.dataset.project === time.name) {
-          console.log(time.time);
-          project.innerText = time.time;
+          project.innerText = displayTime(time.time);
         }
       });
     });
 
-    totalTime.innerText = timeTab
-      .reduce((acc, time) => {
-        const { hours, minutes } = convertTime(time.time);
-        return acc + parseInt(hours) + parseInt(minutes) / 60;
-      }, 0)
-      .toFixed(2);
+    let total = timeTab.reduce(
+      (acc, time) => {
+        let { hours, minutes } = convertTime(time.time);
+
+        acc.hours += hours;
+        acc.minutes += minutes;
+
+        return acc;
+      },
+      { hours: 0, minutes: 0 }
+    );
+
+    totalTime.innerText = displayTime(`${total.hours}:${total.minutes}`);
   });
 };
 
