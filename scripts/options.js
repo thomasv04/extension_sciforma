@@ -1,11 +1,11 @@
 const submitSettings = document.getElementById("submit-settings");
 const settingsForm = document.getElementById("settingsForm");
 const hourPerDay = document.getElementById("hour-per-day");
+const logoutButton = document.getElementById("logout-button");
 
 submitSettings.addEventListener("click", (e) => {
     let hourPerDayValue = hourPerDay.value;
     // e.preventDefault();
-    console.log('Test store settings');
     storeSettings(hourPerDayValue);
 });
 
@@ -21,5 +21,16 @@ window.addEventListener('load', (event) => {
             hourPerDay.value = result.hourPerDay;
         });
     }
+  });
+
+  /* *********************************
+            BOUTON LOGOUT
+  ********************************* */ 
+  logoutButton.addEventListener("click", (e) => {
+    e.preventDefault();
+  
+    chrome.runtime.sendMessage({ message: "logout" }, function (response) {
+      if (response === "success") window.location.replace("./login.html");
+    });
   });
   

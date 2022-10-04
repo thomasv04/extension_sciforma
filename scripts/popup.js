@@ -1,18 +1,9 @@
-let logoutButton = document.getElementById("logout-button");
 let timeProject = document.querySelectorAll(".projets .time");
 let totalTime = document.querySelector("#total .time");
 let addTime = document.querySelectorAll(".add");
 let timeTab = [];
 
 const time = "08:26";
-
-logoutButton.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  chrome.runtime.sendMessage({ message: "logout" }, function (response) {
-    if (response === "success") window.location.replace("./login.html");
-  });
-});
 
 document.addEventListener("DOMContentLoaded", async () => {
   chrome.storage.local.get(["timeProject"], function (response) {
