@@ -1,5 +1,5 @@
 // yom.js
-document.getElementById('connected').addEventListener("click", isConnected);
+//document.getElementById('connected').addEventListener("click", isConnected);
 
 let options = {
     method: 'GET',
@@ -22,10 +22,18 @@ async function isConnected() {
       }
       console.log('connected: ', connected);
       // là on fait qqch avec notre réponse
-      document.getElementById("result").innerHTML = connected;
+      if (connected==true){
+        document.getElementById("result").innerHTML = connected;
+      } else {
+        document.getElementById("result").innerHTML += "vous n'&ecirc;tes pas connect&eacute;, vous allez &ecirc;tre redirig&eacute; ...";
+        chrome.tabs.update({url: "https://edenred.sciforma.net/sciforma/"});
+      }
+      
     } catch (err) {
       console.log("erreur");
       console.log(err);
     }
     return connected;
 }
+
+isConnected()
