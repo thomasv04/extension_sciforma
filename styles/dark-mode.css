@@ -33,3 +33,13 @@ body.dark-mode .projets > div {
 body.dark-mode #total {
   background-color: #131718;
 }
+
+body#option-page.dark-mode {
+  background-color: #131718;
+}
+
+body#option-page.dark-mode form input[type="number"] {
+  background-color: #2a3033;
+  color: #ffffff;
+  border: 1px solid #2a3033;
+}
