@@ -27,10 +27,8 @@ if (darkModeToggle) {
     const darkMode = darkModeToggle.checked;
 
     if (darkModeToggle.checked) {
-      console.log("its checked");
       body.classList.add("dark-mode");
     } else {
-      console.log("its not checked");
       body.classList.remove("dark-mode");
     }
 
