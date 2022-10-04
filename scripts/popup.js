@@ -32,8 +32,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (chrome.storage.local.get(["hourPerDay"])) {
     chrome.storage.local.get(["hourPerDay"], function (result) {
       console.log(result);
-      if (result.hourPerDay !== "")
+      if (result.hourPerDay !== "" && result.hourPerDay !== undefined) {
         hoursPerDays.innerText = result.hourPerDay + ":00";
+      } else {
+        hoursPerDays.innerText = "07:00";
+      }
     });
   }
 

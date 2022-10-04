@@ -171,6 +171,20 @@ start.onclick = () => {
   }
 };
 
+
+function reset() {
+  chrome.storage.local.set({timer: null}, function () {
+    clearTimeout(t);
+    isRunning = false;
+    sec = 0;
+    min = 0;
+    hrs = 0;
+    secView.textContent = "00";
+    hourView.textContent = "00";
+    minView.textContent = "00";
+  })
+}
+
 // reset.onclick = function () {
 //   timerView.textContent = "00:00:00";
 //   sec = 0;
