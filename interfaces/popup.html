@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/popup.css" />
+    <link rel="stylesheet" href="../styles/dark-mode.css" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -16,8 +17,8 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body id="popup-page">
-    <h1>Sciforma</h1>
+  <body id="popup-page" class="dark-mode">
+    <h1><div class="dark-mode">Sciforma</div></h1>
     <div id="logout">
       <input type="submit" id="logout-button" value="Logout" />
     </div>
@@ -56,7 +57,7 @@
           </div>
         </div>
 
-        <div class="barre"></div>
+        <div class="barre dark-mode"></div>
 
         <div class="projets">
           <div class="border project">
@@ -102,10 +103,10 @@
       </div>
     </div>
 
-    <div id="dark-mode">
+    <!-- <div id="dark-mode">
       <input type="checkbox" id="dark-mode-toggle" />
       <label for="dark-mode-toggle">Dark mode</label>
-    </div>
+    </div> -->
 
     <!-- <script src="../scripts/timer.js"></script> -->
     <script src="../scripts/popup.js"></script>

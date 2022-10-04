@@ -1,0 +1,35 @@
+body.dark-mode {
+  background-color: #2a3033;
+}
+
+#login form input[type="text"] {
+  background-color: #2a3033;
+  color: #ffffff;
+  border: 1px solid #2a3033;
+}
+
+#login form input[type="password"] {
+  background-color: #2a3033;
+  color: #ffffff;
+  border: 1px solid #2a3033;
+}
+
+.barre .dark-mode {
+  border-top: 2px solid #ffffff;
+}
+
+h1 {
+  color: #ffffff;
+}
+
+.timer .temps {
+  background-color: #131718;
+}
+
+.projets > div {
+  background-color: #131718;
+}
+
+#total {
+  background-color: #131718;
+}
