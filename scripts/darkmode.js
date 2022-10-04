@@ -1,5 +1,5 @@
 let darkModeToggle = document.getElementById("dark-mode-toggle");
-const body = document.body;
+let body = document.body;
 
 document.addEventListener("DOMContentLoaded", async () => {
   chrome.storage.local.get(["darkMode"], function (response) {

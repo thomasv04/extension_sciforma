@@ -1,8 +1,9 @@
 const settingsForm = document.getElementById("settingsForm");
 const hourPerDay = document.getElementById("hour-per-day");
 const logoutButton = document.getElementById("logout-button");
-const darkModeToggle = document.getElementById("dark-mode-toggle");
-const body = document.body;
+darkModeToggle = document.getElementById("dark-mode-toggle");
+const themeColor = document.getElementById("theme-color");
+body = document.body;
 
 /* 
  HEURE PAR JOUR
@@ -26,27 +27,46 @@ window.addEventListener("load", (event) => {
       hourPerDay.value = result.hourPerDay;
     });
   }
+
+  //theme color
+  if (chrome.storage.local.get(["themeColor"])) {
+    chrome.storage.local.get(["themeColor"], function (result) {
+      if (result.themeColor !== undefined) themeColor.value = result.themeColor;
+    });
+  }
 });
 
 /* *********************************
             BOUTON LOGOUT
   ********************************* */
-logoutButton.addEventListener("click", (e) => {
-  e.preventDefault();
+if (logoutButton) {
+  logoutButton.addEventListener("click", (e) => {
+    e.preventDefault();
 
-  chrome.runtime.sendMessage({ message: "logout" }, function (response) {
-    if (response === "success") window.location.replace("./login.html");
+    chrome.runtime.sendMessage({ message: "logout" }, function (response) {
+      if (response === "success") window.location.replace("./login.html");
+    });
   });
-});
+}
 
-darkModeToggle.addEventListener("click", (e) => {
-  const darkMode = darkModeToggle.checked;
+if (darkModeToggle) {
+  darkModeToggle.addEventListener("click", (e) => {
+    const darkMode = darkModeToggle.checked;
 
-  if (darkModeToggle.checked) {
-    body.classList.add("dark-mode");
-  } else {
-    body.classList.remove("dark-mode");
-  }
+    if (darkModeToggle.checked) {
+      body.classList.add("dark-mode");
+    } else {
+      body.classList.remove("dark-mode");
+    }
 
-  chrome.storage.local.set({ darkMode });
-});
+    chrome.storage.local.set({ darkMode });
+  });
+}
+
+if (themeColor) {
+  themeColor.addEventListener("change", (e) => {
+    const themeColorValue = themeColor.value;
+
+    chrome.storage.local.set({ themeColor: themeColorValue });
+  });
+}

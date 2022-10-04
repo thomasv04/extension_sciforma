@@ -36,6 +36,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         hoursPerDays.innerText = result.hourPerDay + ":00";
     });
   }
+
+  if (chrome.storage.local.get(["themeColor"])) {
+    chrome.storage.local.get(["themeColor"], function (result) {
+      if (result.themeColor !== undefined)
+        document.documentElement.style.setProperty(
+          "--color-primary",
+          result.themeColor
+        );
+    });
+  }
 });
 
 const convertTime = (time) => {

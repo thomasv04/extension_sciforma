@@ -4,7 +4,7 @@ body {
 #options form {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 100%;
   width: 100%;
 }
@@ -28,7 +28,7 @@ body {
 #options #dark-mode {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 #options #logout {
