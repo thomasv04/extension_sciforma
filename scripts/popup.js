@@ -6,7 +6,7 @@ let hoursPerDays = document.getElementById("hours-per-day");
 let sendButton = document.getElementById("send");
 let popupCongrate = document.getElementById("popup-congrate");
 
-const time = "08:26";
+const time = "00:26";
 
 document.addEventListener("DOMContentLoaded", async () => {
   chrome.storage.local.get(["timeProject"], function (response) {

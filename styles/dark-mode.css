@@ -30,14 +30,14 @@ body.dark-mode #total {
 }
 
 body#option-page.dark-mode {
-  background-color: #131718;
+  background-color: #2a3033;
   color: #ffffff;
 }
 
 body#option-page.dark-mode form input[type="number"] {
   background-color: #2a3033;
   color: #ffffff;
-  border: 1px solid #2a3033;
+  border: 1px solid #51585c;
 }
 
 body.dark-mode #popup-congrate {
