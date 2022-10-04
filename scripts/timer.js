@@ -3,10 +3,12 @@ var start = document.getElementById("strt");
 var stop = document.getElementById("stp");
 var reset = document.getElementById("rst");
 var save = document.getElementById("save");
+var secView = document.getElementById("secView");
 var sec = 0;
 var min = 0;
 var hrs = 0;
 var t;
+var isRunning = false;
 
 function tick() {
   sec++;
@@ -21,12 +23,9 @@ function tick() {
 }
 function add() {
   tick();
-  timerView.textContent =
-    (hrs > 9 ? hrs : "0" + hrs) +
-    ":" +
-    (min > 9 ? min : "0" + min) +
-    ":" +
-    (sec > 9 ? sec : "0" + sec);
+  secView.textContent = sec > 9 ? sec : "0" + sec;
+  hourView.textContent = hrs > 9 ? hrs : "0" + hrs;
+  minView.textContent = min > 9 ? min : "0" + min;
   timer();
 }
 function timer() {
@@ -34,8 +33,13 @@ function timer() {
 }
 
 start.onclick = () => {
-  timer();
-  start.disabled = true;
+  if (isRunning === false) {
+    isRunning = true;
+    timer();
+  } else {
+    clearTimeout(t);
+    isRunning = false;
+  }
 };
 stop.onclick = function () {
   clearTimeout(t);
