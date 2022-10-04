@@ -57,8 +57,3 @@
   .slider.round:before {
     border-radius: 50%;
   }
-
-  .dark-mode {
-    color: #FFF;
-    background-color: black;
-  }
