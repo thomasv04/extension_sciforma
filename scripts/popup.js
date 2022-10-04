@@ -2,6 +2,9 @@ let timeProject = document.querySelectorAll(".projets .time");
 let totalTime = document.querySelector("#total .time");
 let addTime = document.querySelectorAll(".add");
 let timeTab = [];
+let hoursPerDays = document.getElementById("hours-per-day");
+let sendButton = document.getElementById("send");
+let popupCongrate = document.getElementById("popup-congrate");
 
 const time = "08:26";
 
@@ -19,10 +22,20 @@ document.addEventListener("DOMContentLoaded", async () => {
           time: "05:00",
         });
       });
+
+      updateTimeStorage(timeTab);
     }
   });
 
   updateDom(timeTab);
+
+  if (chrome.storage.local.get(["hourPerDay"])) {
+    chrome.storage.local.get(["hourPerDay"], function (result) {
+      console.log(result);
+      if (result.hourPerDay !== "")
+        hoursPerDays.innerText = result.hourPerDay + ":00";
+    });
+  }
 });
 
 const convertTime = (time) => {
@@ -78,6 +91,12 @@ const updateDom = (timeTab) => {
   });
 };
 
+const updateTimeStorage = (timeTab) => {
+  chrome.storage.local.set({ timeProject: timeTab }, function () {
+    console.log("timeProject is set to " + timeTab);
+  });
+};
+
 addTime.forEach((button) => {
   button.addEventListener("click", (e) => {
     e.preventDefault();
@@ -105,6 +124,32 @@ addTime.forEach((button) => {
       }
     });
 
+    updateTimeStorage(timeTab);
+
     updateDom(timeTab);
   });
 });
+
+const resetTime = () => {
+  timeTab.forEach((time) => {
+    time.time = "00:00";
+  });
+
+  updateTimeStorage(timeTab);
+
+  updateDom(timeTab);
+};
+
+if (sendButton) {
+  sendButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    popupCongrate.classList.add("active");
+    setTimeout(() => {
+      popupCongrate.classList.remove("active");
+    }, 2000);
+
+    //reset time
+    resetTime();
+  });
+}

@@ -31,9 +31,6 @@ h1 {
   margin: 0;
   padding: 10px;
   border-radius: 5px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
 }
 
 input.error {

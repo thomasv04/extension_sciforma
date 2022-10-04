@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     }
 
-    if (response.darkMode) darkModeToggle.checked = true;
+    if (darkModeToggle) darkModeToggle.checked = true;
 
     if (response.darkMode) body.classList.add("dark-mode");
   });

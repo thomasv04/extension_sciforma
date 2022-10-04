@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" >
   <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="../styles/main.css" />
     <link rel="stylesheet" href="../styles/popup.css" />
     <link rel="stylesheet" href="../styles/dark-mode.css" />
@@ -97,11 +98,25 @@
         <div class="border total" id="total">
           <p>TOTAL</p>
           <div class="time"><p>00:00</p></div>
+          <span>/ <span id="hours-per-day">17:00</span></span>
         </div>
-        <div class="border envoyer">Envoyer</div>
+        <div class="border envoyer" id="send">Envoyer</div>
       </div>
     </div>
 
+    <!-- popup modal congrate entry of times sent-->
+    <div id="popup-congrate">
+      <div id="popup-content">
+        <div class="congrate">
+          <div class="icon">
+            <i class="fa-solid fa-check-circle"></i>
+          </div>
+          <div class="text">
+            <p>Félicitations !</p>
+            <p>Vos temps ont bien été envoyés.</p>
+          </div>
+        </div>
+      </div>
     <!-- <script src="../scripts/timer.js"></script> -->
     <script src="../scripts/popup.js"></script>
     <script src="../scripts/options.js"></script>

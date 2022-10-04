@@ -2,20 +2,15 @@ body.dark-mode {
   background-color: #2a3033;
 }
 
-body.dark-mode #login form input[type="text"] {
-  background-color: #2a3033;
-  color: #ffffff;
-  border: 1px solid #2a3033;
-}
-
-body.dark-mode #login form input[type="text"] {
+body.dark-mode #login form input[type="text"],
+body.dark-mode #login form input[type="password"] {
   background-color: #2a3033;
   color: #ffffff;
   border: 1px solid #2a3033;
 }
 
 body.dark-mode .barre {
-  border-top: 2px solid #ffffff;
+  border-top: 2px solid #505050;
 }
 
 body.dark-mode h1 {
@@ -42,4 +37,32 @@ body#option-page.dark-mode form input[type="number"] {
   background-color: #2a3033;
   color: #ffffff;
   border: 1px solid #2a3033;
+}
+
+body.dark-mode #popup-congrate {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode #popup-congrate #popup-content {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode #popup-congrate .congrate .icon {
+  background-color: #000000;
+}
+
+body.dark-mode #popup-congrate .congrate .icon i {
+  color: rgb(11, 189, 41);
+}
+
+body.dark-mode #popup-congrate .congrate .text p {
+  color: #fff;
+}
+
+body.dark-mode #popup-congrate .congrate .text p:nth-child(2) {
+  color: #fff;
+}
+
+body.dark-mode #popup-congrate .congrate .text p:nth-child(2) {
+  color: #fff;
 }

@@ -7,9 +7,9 @@ const logoutButton = document.getElementById("logout-button");
 */
 
 hourPerDay.addEventListener("change", (e) => {
-    let hourPerDayValue = hourPerDay.value;
-    // e.preventDefault();
-    storeSettings(hourPerDayValue);
+  let hourPerDayValue = hourPerDay.value;
+  // e.preventDefault();
+  storeSettings(hourPerDayValue);
 });
 
 function storeSettings(hourPerDayValue) {
@@ -17,8 +17,6 @@ function storeSettings(hourPerDayValue) {
     // console.log("Value is set to " + hourPerDayValue)
   });
 }
-
-
 
 window.addEventListener("load", (event) => {
   if (chrome.storage.local.get(["hourPerDay"])) {
