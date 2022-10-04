@@ -17,8 +17,8 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body id="popup-page" class="dark-mode">
-    <h1><div class="dark-mode">Sciforma</div></h1>
+  <body id="popup-page">
+    <h1>Sciforma</h1>
     <div id="logout">
       <input type="submit" id="logout-button" value="Logout" />
     </div>
@@ -38,26 +38,28 @@
           </div>
 
           <div class="hours">
-            <div class="temps"><p>01</p></div>
+            <div class="temps" id="hourView"><p>00</p></div>
             <p>Heures</p>
           </div>
 
           <div class="minutes">
-            <div class="temps"><p>02</p></div>
+            <div class="temps" id="minView"><p>00</p></div>
             <p>Minutes</p>
           </div>
 
           <div class="seconds">
-            <div class="temps"><p>03</p></div>
+            <div class="temps" id="secView"><p>00</p></div>
             <p>Secondes</p>
           </div>
           <div class="icon">
-            <div class="temps"><i class="fa-solid fa-hourglass-start"></i></div>
+            <div class="temps" id="strt">
+              <i class="fa-solid fa-hourglass-start"></i>
+            </div>
             <div></div>
           </div>
         </div>
 
-        <div class="barre dark-mode"></div>
+        <div class="barre"></div>
 
         <div class="projets">
           <div class="border project">
@@ -103,14 +105,13 @@
       </div>
     </div>
 
-    <!-- <div id="dark-mode">
+    <div id="dark-mode">
       <input type="checkbox" id="dark-mode-toggle" />
       <label for="dark-mode-toggle">Dark mode</label>
-    </div> -->
+    </div>
 
-    <!-- <script src="../scripts/timer.js"></script> -->
+    <script src="../scripts/timer.js"></script>
     <script src="../scripts/popup.js"></script>
-    <script src="../scripts/options.js"></script>
-    <script src="../scripts/darkmode.js"></script>
+    <!-- <script src="../scripts/options.js"></script> -->
   </body>
 </html>
