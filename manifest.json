@@ -11,6 +11,7 @@
     "default_popup": "interfaces/login.html"
   },
   "icons": {
+    "16": "icon16.png",
     "64": "icon64.png"
   },
   "options_ui": {
