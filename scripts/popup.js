@@ -6,7 +6,7 @@ let hoursPerDays = document.getElementById("hours-per-day");
 let sendButton = document.getElementById("send");
 let popupCongrate = document.getElementById("popup-congrate");
 
-const time = "00:26";
+// const time = "00:26";
 
 document.addEventListener("DOMContentLoaded", async () => {
   chrome.storage.local.get(["timeProject"], function (response) {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       timeProject.forEach((project) => {
         timeTab.push({
           name: project.dataset.project,
-          time: "05:00",
+          time: "00:00",
         });
       });
 
@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 const convertTime = (time) => {
+  console.log("time", time);
   let [hours, minutes] = time.split(":");
 
   hours = parseInt(hours);
@@ -107,38 +108,38 @@ const updateTimeStorage = (timeTab) => {
   });
 };
 
-addTime.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    e.preventDefault();
+// addTime.forEach((button) => {
+//   button.addEventListener("click", (e) => {
+//     e.preventDefault();
 
-    const timeSibling = e.target.parentElement.previousElementSibling;
+//     const timeSibling = e.target.parentElement.previousElementSibling;
 
-    const { hours, minutes } = convertTime(timeSibling.innerText);
+//     const { hours, minutes } = convertTime(timeSibling.innerText);
 
-    let newHours = parseInt(hours) + parseInt(convertTime(time).hours);
-    let newMinutes = parseInt(minutes) + parseInt(convertTime(time).minutes);
+//     let newHours = parseInt(hours) + parseInt(convertTime(time).hours);
+//     let newMinutes = parseInt(minutes) + parseInt(convertTime(time).minutes);
 
-    if (newHours < 10) {
-      newHours = "0" + newHours;
-    }
+//     if (newHours < 10) {
+//       newHours = "0" + newHours;
+//     }
 
-    if (newMinutes < 10) {
-      newMinutes = "0" + newMinutes;
-    }
+//     if (newMinutes < 10) {
+//       newMinutes = "0" + newMinutes;
+//     }
 
-    timeSibling.innerText = `${newHours}:${newMinutes}`;
+//     timeSibling.innerText = `${newHours}:${newMinutes}`;
 
-    timeTab.forEach((time) => {
-      if (time.name === timeSibling.dataset.project) {
-        time.time = `${newHours}:${newMinutes}`;
-      }
-    });
+//     timeTab.forEach((time) => {
+//       if (time.name === timeSibling.dataset.project) {
+//         time.time = `${newHours}:${newMinutes}`;
+//       }
+//     });
 
-    updateTimeStorage(timeTab);
+//     updateTimeStorage(timeTab);
 
-    updateDom(timeTab);
-  });
-});
+//     updateDom(timeTab);
+//   });
+// });
 
 const resetTime = () => {
   timeTab.forEach((time) => {
@@ -161,5 +162,6 @@ if (sendButton) {
 
     //reset time
     resetTime();
+    reset();
   });
 }

@@ -1,9 +1,11 @@
 var timerView = document.getElementById("timerView");
 var start = document.getElementById("strt");
 var stop = document.getElementById("stp");
-var reset = document.getElementById("rst");
 var save = document.getElementById("save");
-var secView = document.getElementById("secView");
+var secView = document.querySelector("#secView p");
+var minView = document.querySelector("#minView p");
+var hourView = document.querySelector("#hourView p");
+var addButton = document.querySelectorAll(".add");
 var sec = 0;
 var min = 0;
 var hrs = 0;
@@ -37,13 +39,6 @@ if (chrome.storage.local.get(["timer"])) {
   });
 }
 
-// chrome.storage.local.get(["startTime"], function (response) {
-//   if (response) {
-//     isRunning = true;
-//     console.log(response);
-//   }
-// });
-
 function tick() {
   sec++;
   if (sec >= 60) {
@@ -55,13 +50,91 @@ function tick() {
     }
   }
 }
+
 function add() {
   tick();
   secView.textContent = sec > 9 ? sec : "0" + sec;
   hourView.textContent = hrs > 9 ? hrs : "0" + hrs;
   minView.textContent = min > 9 ? min : "0" + min;
+
+  if (isRunning) {
+    start.children[0].classList.remove("fa-play");
+    start.children[0].classList.remove("fa-pause");
+    start.children[0].classList.add("fa-hourglass-start");
+  }
+
   timer();
 }
+
+function getTime() {
+  //HH:MM with hrs and min
+  return `${hrs > 9 ? hrs : "0" + hrs}:${min > 9 ? min : "0" + min}`;
+}
+
+function reset() {
+  chrome.storage.local.set({ timer: null }, function () {
+    clearTimeout(t);
+    isRunning = false;
+    sec = 0;
+    min = 0;
+    hrs = 0;
+    secView.textContent = "00";
+    hourView.textContent = "00";
+    minView.textContent = "00";
+  });
+
+  addButton.forEach((btn) => {
+    btn.style.display = "none";
+  });
+
+  start.children[0].classList.remove("fa-hourglass-start");
+  start.children[0].classList.remove("fa-pause");
+  start.children[0].classList.add("fa-play");
+}
+
+function updateTimeTab(e) {
+  chrome.storage.local.get(["timeProject"], function (response) {
+    if (response.timeProject) {
+      let timeProject = response.timeProject;
+      let project =
+        e.target.parentElement.previousElementSibling.dataset.project;
+
+      let time = timeProject.filter((item) => item.name === project)[0].time;
+      if (time) {
+        let { hours, minutes } = convertTime(time);
+
+        hours = hours + convertTime(getTime()).hours;
+        minutes = minutes + convertTime(getTime()).minutes;
+
+        //update timeProject
+        timeProject = timeProject.map((item) => {
+          if (item.name === project) {
+            item.time = `${hours}:${minutes}`;
+          }
+          return item;
+        });
+
+        chrome.storage.local.set({ timeProject }, function () {
+          console.log("timeProject is set to " + timeProject);
+        });
+
+        console.log(typeof reset);
+
+        reset();
+
+        updateDom(timeProject);
+      }
+    }
+  });
+}
+
+addButton.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    updateTimeTab(e);
+  });
+});
+
 function timer() {
   t = setTimeout(add, 1000);
 }
@@ -69,11 +142,15 @@ function timer() {
 start.onclick = () => {
   if (isRunning === false) {
     startTime = Date.now();
-    console.log(startTime);
     chrome.storage.local.set({ timer: { startTime: startTime } }, function () {
       console.log(startTime);
     });
     isRunning = true;
+
+    addButton.forEach((btn) => {
+      btn.style.display = "none";
+    });
+
     timer();
   } else {
     endTime = Date.now();
@@ -82,6 +159,15 @@ start.onclick = () => {
     });
     clearTimeout(t);
     isRunning = false;
+
+    start.children[0].classList.remove("fa-hourglass-start");
+    start.children[0].classList.remove("fa-play");
+    start.children[0].classList.add("fa-pause");
+
+    //display block addButton
+    addButton.forEach((btn) => {
+      btn.style.display = "block";
+    });
   }
 };
 

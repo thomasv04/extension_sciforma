@@ -24,7 +24,16 @@ function storeSettings(hourPerDayValue) {
 window.addEventListener("load", (event) => {
   if (chrome.storage.local.get(["hourPerDay"])) {
     chrome.storage.local.get(["hourPerDay"], function (result) {
-      hourPerDay.value = result.hourPerDay;
+      if (result.hourPerDay !== undefined) {
+        hourPerDay.value = result.hourPerDay;
+      } else {
+        hourPerDay.value = 7;
+
+        //target hourPerDay change
+        hourPerDay.dispatchEvent(new Event("change"));
+      }
+
+      console.log(result);
     });
   }
 

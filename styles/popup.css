@@ -57,6 +57,10 @@
   padding-bottom: 10px;
 }
 
+.project .add {
+  display: none;
+}
+
 .project .add i {
   position: absolute;
   top: 50%;
